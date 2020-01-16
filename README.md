@@ -15,14 +15,14 @@
 <br/><br/>
 
 ## Description
-Customer character creation for the Arduino Liquid Crystal Display (LCD) requires you to construct byte arrays with specific values for bits. LCDMap is a library that abstracts this process, allowing you to create animated, movable and rotatable images without having to worry about bit-level arithmetic.
+Customer character creation for the Arduino Liquid Crystal Display (LCD) requires you to construct byte arrays with specific values for bits. **LCDMap** is a library that abstracts this process, allowing you to create animated, movable and rotatable images without having to worry about bit-level arithmetic.
 
-To see it in action, see the video below, which is taken from the [examples](../examples) provided with this repo. For a much more complex example, see [Coy Fish](#).
+To see it in action, see the video below, which is taken from the [examples](./examples) provided with this repo. For a much more complex example, see [Coy Fish (TODO)](./examples).
 
 <br/><br/>
 
 ## How it Works
-The LCDMap library allows the user to create images (referred to as sprites) and perform the following operations:
+The **LCDMap** library allows the user to create images (referred to as sprites) and perform the following operations:
 - Move sprites
 - Rotate sprites 
 - Animate sprites
@@ -33,7 +33,7 @@ In order to understand how the library works, one must first understand how the 
 
 To create a custom character, ***LiquidCrystal.createChar()*** takes an array of eight bytes. Each byte represents a row of the custom character, where each bit represents the value of the pixel (1 is lit, 0 is dark).
 
-[](../images/img1.jpg)
+![](./images/img1.jpg)
 
 These bytes are stored directly in the onboard memory of the LCD, which only has enough for **eight** customer characters. Since the characters are drawn directly from memory, overriding a character will update all instances on the display.
 
@@ -43,25 +43,25 @@ To create a sprite, a user must define one horizontal and one diagonal frame. If
 
 Each frame is stored in a byte array, similar to how custom characters are, but the rows are wrapped around.
 
-[](../images/img2.jpg)
+![](./images/img2.jpg)
 
 When it comes time to create a custom character, some bitwise arithmetic uploads the frame onto an eight-byte array, which is then plugged into ***LiquidCrystal.createChar()***.
 
-[](../images/img3.jpg)
+![](./images/img3.jpg)
 
 As mentioned before, ***LCDMap*** allows the sprite to move, so the frame is uploaded in a way that preserves its position.
 
-[](../images/img4.jpg)
+![](./images/img4.jpg)
 
 Furthermore, the sprite can be rotated in eight directions. This is the reason for having a horizontal *and* a diagonal frame. But, instead of having to define eight variations of the same frame, ***LCDMap*** *reads* the two frames from different directions.
 
 For example, the following frame, if read from **left to right**, produces the expected output.
 
-[](../images/img5.jpg)
+![](./images/img5.jpg)
 
 However, if the same frame is read from **top to bottom**, the ouput changes.
 
-[](../images/img6.jpg)
+![](./images/img6.jpg)
 
 This is how a single frame represents four rotations.
 
@@ -77,7 +77,7 @@ For this library, you will need the [Arduino IDE](https://www.arduino.cc/en/main
 ## How to Use
 
 ### Quick Reference Guide
-Use this table as a quick reference to the LCDMap functions. All indeces start at 0, from the top left corner of the sprite/LCD.
+Use this table as a quick reference to the **LCDMap** functions. All indeces start at 0, from the top left corner of the sprite/LCD.
 
 | Function | Return | Description |
 | -------- | ------ | ----------- |
@@ -126,7 +126,7 @@ Follow [this tutorial](https://howtomechatronics.com/tutorials/arduino/lcd-tutor
 <br/>
 
 ### Creating Your Animation
-For more information, see the provided [examples](../examples). For a more complex example, see [Coy Fish](#).
+For more information, see the provided [examples](./examples). For a more complex example, see [Coy Fish (TODO)](#).
 
 <br/>
 
@@ -156,20 +156,20 @@ This example creates a sprite of size **2** with id **A**. The sprite has one fr
 - Frames must have horizontal and vertical components (for rotation)
 
 These steps show how to create a 2-pixel line that points in the direction of motion.
-1. Initialize your sprite using *createSprite()*.
+1. Initialize your sprite using ***createSprite()***.
 ```cpp
 map.createSprite('A', 2);
 ```
-2. Add a frame for the sprite using *addFrame()*.
+2. Add a frame for the sprite using ***addFrame()***.
 ```cpp
 map.addFrame('A', 'B');
 ```
-3. Draw the horizontal component of the frame using *drawFrameH()*. The top left pixel of the sprite is (0, 0).
+3. Draw the horizontal component of the frame using ***drawFrameH()***. The top left pixel of the sprite is (0, 0).
 ```cpp
 map.drawFrameH('A', 'B', 0, 0);
 map.drawFrameH('A', 'B', 0, 1);
 ```
-4. Draw the diagonal component of the frame using *drawFrameD()*. The top left pixel of the sprite is (0, 0).
+4. Draw the diagonal component of the frame using ***drawFrameD()***. The top left pixel of the sprite is (0, 0).
 ```cpp
 map.drawFrameD('A', 'B', 1, 0);
 map.drawFrameD('A', 'B', 0, 1);
@@ -178,15 +178,15 @@ map.drawFrameD('A', 'B', 0, 1);
 <br/>
 
 #### Moving the Sprite
-The image can be moved around the LCD using *shiftSprite()*. The top left pixel on the LCD is (0, 0).
+The image can be moved around the LCD using ***shiftSprite()***. The top left pixel on the LCD is (0, 0).
 ```cpp
 map.shiftSprite('A', 10, 5);
 ```
-If you simply want to shift the sprite in the direction of its current rotation, use *shiftSpriteForward()*.
+If you simply want to shift the sprite in the direction of its current rotation, use ***shiftSpriteForward()***.
 ```cpp
 map.shiftSpriteForward('A', 1);
 ```
-If you don't want your image to leave the screen, you must set the bounds using *setBounds()*. 
+If you don't want your image to leave the screen, you must set the bounds using ***setBounds()***. 
 ```cpp
 map.setBounds('A', 1, 79, 15, 1);
 ```
@@ -197,7 +197,7 @@ This code sets a perimeter of 1 pixel outside the visible screen of a standard, 
 #### Rotating the Sprite
 The sprite can be rotated in 8 different directions. Each rotation is incremented by 45 degrees, clockwise (0 degrees points up). The sprite will not rotate if the new rotation is not a multiple of 45.
 
-Rotate the sprite 45 degrees to the right using *rotateSprite()*.
+Rotate the sprite 45 degrees to the right using ***rotateSprite()***.
 ```cpp
 map.rotateSprite('A', 45);
 ```
@@ -205,7 +205,22 @@ map.rotateSprite('A', 45);
 <br/>
 
 #### Creating the Custom Characters
-For information on how to create the custom characters from LCDMap, see the provided [examples](../examples).
+***LCDMap*** does not automatically generate the characters on your LCD. For that, you must also use the ***LiquidCrystal*** library, which comes with Arduino IDE.
+
+Generating the custom character from LCDMap onto your display involves two simple steps:
+1. Create the custom character byte array using ***LCDMap.readCharacter()***, which takes a row and column. If no sprites intersect with this character, the returned value will be *null*.
+```cpp
+unsigned char* character = map.readCharacter(0, 0);
+```
+2. Use the byte array to generate a custom character on your display through [***LiquidCrystal.createChar()***](https://www.arduino.cc/en/Reference/LiquidCrystalCreateChar).
+```cpp
+// lcd is of type LiquidCrystal
+lcd.createChar(3, character);
+lcd.setCursor(0, 0);
+lcd.write(byte(3));
+```
+
+For information on how to create the custom characters from ***LCDMap***, see the provided [examples](./examples).
 
 <br/><br/>
 
@@ -217,3 +232,5 @@ For information on how to create the custom characters from LCDMap, see the prov
 [Wiring the LCD Display](https://howtomechatronics.com/tutorials/arduino/lcd-tutorial/)
 
 [Liquid Crystal Library](https://www.arduino.cc/en/Reference/LiquidCrystal)
+
+[Generating Custom Characters](https://www.arduino.cc/en/Reference/LiquidCrystalCreateChar)
