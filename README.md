@@ -17,7 +17,7 @@
 ## Description
 Customer character creation for the Arduino Liquid Crystal Display (LCD) requires you to construct byte arrays with specific values for bits. **LCDMap** is a library that abstracts this process, allowing you to create animated, movable and rotatable images without having to worry about bit-level arithmetic.
 
-To see it in action, see the video below, which is taken from the [examples](./examples) provided with this repo. For a much more complex example, see [Coy Fish (TODO)](./examples).
+To see it in action, see the video below (TODO), which is taken from the [examples](./examples) provided with this repo. For a much more complex example, see [Coy Fish (TODO)](./examples).
 
 <br/><br/>
 
@@ -126,10 +126,6 @@ Follow [this tutorial](https://howtomechatronics.com/tutorials/arduino/lcd-tutor
 <br/>
 
 ### Creating Your Animation
-For more information, see the provided [examples](./examples). For a more complex example, see [Coy Fish (TODO)](#).
-
-<br/>
-
 #### Including the Library
 To use the animation library, you must include it at the top of your Arduino sketch.
 ```cpp
