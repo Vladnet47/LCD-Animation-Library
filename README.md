@@ -15,14 +15,14 @@
 <br/><br/>
 
 ## Description
-Customer character creation for the Arduino Liquid Crystal Display (LCD) requires you to construct byte arrays with specific values for bits. **LCDMap** is a library that abstracts this process, allowing you to create animated, movable and rotatable images without having to worry about bit-level arithmetic.
+Customer character creation for the Arduino Liquid Crystal Display (LCD) requires you to construct byte arrays with specific values for bits. ***LCDMap*** is a library that abstracts this process, allowing you to create animated, movable and rotatable images without having to worry about bit-level arithmetic.
 
 To see it in action, see the video below (TODO), which is taken from the [examples](./examples) provided with this repo. For a much more complex example, see [Coy Fish (TODO)](./examples).
 
 <br/><br/>
 
 ## How it Works
-The **LCDMap** library allows the user to create images (referred to as sprites) and perform the following operations:
+The ***LCDMap*** library allows the user to create images (referred to as sprites) and perform the following operations:
 - Move sprites
 - Rotate sprites 
 - Animate sprites
@@ -77,7 +77,7 @@ For this library, you will need the [Arduino IDE](https://www.arduino.cc/en/main
 ## How to Use
 
 ### Quick Reference Guide
-Use this table as a quick reference to the **LCDMap** functions. All indeces start at 0, from the top left corner of the sprite/LCD.
+Use this table as a quick reference to the ***LCDMap*** functions. All indeces start at 0, from the top left corner of the sprite/LCD.
 
 | Function | Return | Description |
 | -------- | ------ | ----------- |
@@ -203,7 +203,7 @@ map.rotateSprite('A', 45);
 #### Creating the Custom Characters
 ***LCDMap*** does not automatically generate the characters on your LCD. For that, you must also use the ***LiquidCrystal*** library, which comes with Arduino IDE.
 
-Generating the custom character from LCDMap onto your display involves two simple steps:
+Generating the custom character from ***LCDMap*** onto your display involves two simple steps:
 1. Create the custom character byte array using ***LCDMap.readCharacter()***, which takes a row and column. If no sprites intersect with this character, the returned value will be *null*.
 ```cpp
 unsigned char* character = map.readCharacter(0, 0);
