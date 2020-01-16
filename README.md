@@ -70,7 +70,10 @@ With all of ***LCDMap's*** features, the user has the power to create complex, i
 <br/><br/>
 
 ## Prerequisites
-For this library, you will need the [Arduino IDE](https://www.arduino.cc/en/main/software).
+In order to use this library, you should have access to the following.
+- [Arduino microcontroller](https://store.arduino.cc/usa/mega-2560-r3)
+- [Arduino LCD](https://www.adafruit.com/product/1447?gclid=EAIaIQobChMI39fq7cKH5wIVoB6tBh2-JAwfEAQYASABEgINnfD_BwE)
+- [Arduino IDE](https://www.arduino.cc/en/main/software)
 
 <br/><br/>
 
