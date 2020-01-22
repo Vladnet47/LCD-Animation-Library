@@ -19,7 +19,7 @@ Customer character creation for the Arduino Liquid Crystal Display (LCD) require
 
 To see it in action, see the video below, which is taken from the [examples](./examples) provided with this repo. For a much more complex example, see [Coy Fish](https://github.com/Vladnet47/LCD-Coy-Fish).
 
-[![](https://img.youtube.com/vi/KB-Cy3Iyxs8/maxresdefault.jpg)](https://youtu.be/KB-Cy3Iyxs8)
+[![](./images/thumbnail.jpg)](https://youtu.be/KB-Cy3Iyxs8)
 
 <br/><br/>
 
